@@ -4,63 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abinithi's Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensures smooth scroll behavior and applies the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom styles for the back to top button, as Tailwind doesn't directly support triangle icon */
+        #backToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 2rem; /* Place the button at the bottom of the page */
+            right: 2rem; /* Place the button at the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #e74c3c; /* Red accent */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 1rem 1.25rem; /* Some padding */
+            border-radius: 9999px; /* Rounded shape */
+            font-size: 1.5rem; /* Increase font size */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #backToTopBtn:hover {
+            background-color: #c0392b; /* Darker red on hover */
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header and Navigation -->
+    <header class="bg-gradient-to-r from-green-800 to-green-900 py-4 fixed w-full top-0 z-50 shadow-xl">
+        <nav class="container mx-auto px-4 flex justify-center space-x-8">
+            <ul class="flex space-x-6 md:space-x-8">
+                <li><a href="#home" class="text-white hover:text-red-400 transition-colors duration-300 font-semibold text-lg py-2 px-3 rounded-md">Home</a></li>
+                <li><a href="#about" class="text-white hover:text-red-400 transition-colors duration-300 font-semibold text-lg py-2 px-3 rounded-md">About</a></li>
+                <li><a href="#projects" class="text-white hover:text-red-400 transition-colors duration-300 font-semibold text-lg py-2 px-3 rounded-md">Projects</a></li>
+                <li><a href="contact.html" class="text-white hover:text-red-400 transition-colors duration-300 font-semibold text-lg py-2 px-3 rounded-md">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Hi, I'm Abinithi. A passionate developer creating amazing web experiences.</p>
-        </section>
-
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>I'm a web developer with a passion for creating beautiful and functional websites. I specialize in HTML, CSS, and JavaScript.</p>
+    <main class="mt-16 md:mt-20">
+        <!-- Hero Section -->
+        <section id="home" class="bg-gradient-to-r from-green-600 to-green-800 text-white text-center py-24 md:py-32 rounded-b-3xl shadow-xl px-4">
+            <div class="container mx-auto">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight animate-fade-in-down">Welcome to My Portfolio</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 animate-fade-in-up delay-200">Hi, I'm Abinithi. A passionate developer creating amazing web experiences.</p>
+                <a href="#projects" class="bg-red-500 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-red-600 transition-all duration-300 transform hover:scale-105 inline-block animate-zoom-in delay-400">View My Work</a>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>A description of your amazing project goes here.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>A description of your amazing project goes here.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Project 3</h3>
-                    <p>A description of your amazing project goes here.</p>
+        <!-- About Me Section -->
+        <section id="about" class="bg-white py-20 px-4 md:px-8 shadow-lg rounded-lg max-w-6xl mx-auto my-12 animate-slide-in-left">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-gray-800 text-center">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+                <!-- Profile Image -->
+                <img src="https://placehold.co/192x192/16A085/FFFFFF?text=Profile" alt="Abinithi's Profile Picture" class="w-48 h-48 rounded-full object-cover border-4 border-green-600 shadow-xl flex-shrink-0 animate-scale-in">
+                <!-- About Content -->
+                <div class="text-lg leading-relaxed text-gray-700 max-w-2xl text-center md:text-left animate-fade-in delay-200">
+                    <p class="mb-4">I'm a web developer with a passion for creating beautiful and functional websites. I specialize in HTML, CSS, and JavaScript. My goal is to build user-friendly and visually appealing web applications that solve real-world problems. I'm constantly learning new technologies and striving to improve my skills to deliver high-quality digital experiences.</p>
+                    <p>My expertise extends to modern frameworks and libraries, ensuring I can build robust and scalable solutions. I'm dedicated to clean code, responsive design, and delivering exceptional user interfaces.</p>
+                    <p>Feel free to explore my projects and get in touch if you'd like to collaborate or simply connect!</p>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <div class="contact-info">
-                <p>Email: your.email@example.com</p>
-                <p>LinkedIn: linkedin.com/in/yourprofile</p>
-                <p>GitHub: github.com/yourusername</p>
+        <!-- Projects Section -->
+        <section id="projects" class="bg-green-50 py-20 px-4 md:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-gray-800 text-center">My Projects</h2>
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between animate-fade-in-up">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">E-commerce Website</h3>
+                        <p class="text-gray-600 mb-6">A full-stack e-commerce platform built with modern web technologies. Features user authentication, product listings, and a shopping cart functionality.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="inline-block bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition-colors duration-300 font-medium text-sm shadow-md" target="_blank">View Demo</a>
+                        <a href="#" class="inline-block bg-gray-700 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300 font-medium text-sm shadow-md" target="_blank">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between animate-fade-in-up delay-100">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Task Management App</h3>
+                        <p class="text-gray-600 mb-6">A responsive web application for managing daily tasks and to-do lists. Includes features like task creation, editing, and deletion.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="inline-block bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition-colors duration-300 font-medium text-sm shadow-md" target="_blank">View Demo</a>
+                        <a href="#" class="inline-block bg-gray-700 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300 font-medium text-sm shadow-md" target="_blank">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between animate-fade-in-up delay-200">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Portfolio Redesign</h3>
+                        <p class="text-gray-600 mb-6">A complete redesign of a personal portfolio website, focusing on modern aesthetics and improved user experience.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="inline-block bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition-colors duration-300 font-medium text-sm shadow-md" target="_blank">View Demo</a>
+                        <a href="#" class="inline-block bg-gray-700 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300 font-medium text-sm shadow-md" target="_blank">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed, following the same structure -->
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="contact" class="bg-gradient-to-r from-green-800 to-green-900 text-white text-center py-20 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in-down">Ready to Connect?</h2>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 animate-fade-in-up delay-200">I'm always open to new opportunities and collaborations. Let's build something amazing together!</p>
+                <a href="contact.html" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors duration-300 shadow-md transform hover:scale-105 inline-block animate-zoom-in delay-400">Get in Touch</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2023 Abinithi's Portfolio. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white text-center py-6 px-4">
+        <div class="container mx-auto">
+            <p class="text-sm md:text-base">&copy; 2023 Abinithi's Portfolio. All rights reserved.</p>
+        </div>
+        <!-- Back to top button -->
+        <button id="backToTopBtn" title="Go to top">&#9650;</button>
     </footer>
+
+    <script>
+        // JavaScript for "Back to Top" button functionality
+        const backToTopButton = document.getElementById("backToTopBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        backToTopButton.addEventListener('click', function() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        });
+    </script>
 </body>
 </html>
